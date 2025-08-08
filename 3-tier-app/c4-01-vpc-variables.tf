@@ -1,73 +1,72 @@
-##
-variable "vpc_availibity_zones" {
-  description = "Availibity zone for vpc"
-  type        = list(string)
-  default     = ["us-east-1a", "us-east-1b"]
+# VPC Input Variables
 
-}
-
+# VPC Name
 variable "vpc_name" {
-  description = "Name to vpc"
+  description = "VPC Name"
   type        = string
-  default     = "my-vpc"
+  default     = "myvpc"
 }
 
+# VPC CIDR Block
 variable "vpc_cidr_block" {
-  description = "CIDR block for vpc"
+  description = "VPC CIDR Block"
   type        = string
   default     = "10.0.0.0/16"
 }
 
-variable "vpc_private_subnets" {
-  description = "private subnets"
+# VPC Availability Zones
+variable "vpc_availability_zones" {
+  description = "VPC Availability Zones"
   type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+  default     = ["us-east-1a", "us-east-1b"]
 }
 
+# VPC Public Subnets
 variable "vpc_public_subnets" {
-  description = "public subnets"
+  description = "VPC Public Subnets"
   type        = list(string)
   default     = ["10.0.101.0/24", "10.0.102.0/24"]
 }
 
+# VPC Private Subnets
+variable "vpc_private_subnets" {
+  description = "VPC Private Subnets"
+  type        = list(string)
+  default     = ["10.0.1.0/24", "10.0.2.0/24"]
+}
+
+# VPC Database Subnets
 variable "vpc_database_subnets" {
-  description = "database subnets"
+  description = "VPC Database Subnets"
   type        = list(string)
   default     = ["10.0.151.0/24", "10.0.152.0/24"]
 }
 
-variable "vpc_create_database_subnet_route_table" {
-  description = "database routetable enable or disable"
-  type        = bool
-  default     = true
-}
-
+# VPC Create Database Subnet Group (True / False)
 variable "vpc_create_database_subnet_group" {
-  description = "create database subnet group"
+  description = "VPC Create Database Subnet Group"
   type        = bool
   default     = true
 }
 
-variable "vpc_enable_dns_hostnames" {
-  description = "Enable or disable dns hostnames"
+# VPC Create Database Subnet Route Table (True or False)
+variable "vpc_create_database_subnet_route_table" {
+  description = "VPC Create Database Subnet Route Table"
   type        = bool
   default     = true
 }
 
-variable "vpc_enable_dns_support" {
-  description = "Enable or disable dns support"
-  type        = bool
-  default     = true
-}
 
+# VPC Enable NAT Gateway (True or False) 
 variable "vpc_enable_nat_gateway" {
-  description = "Enable nat gateway"
+  description = "Enable NAT Gateways for Private Subnets Outbound Communication"
   type        = bool
   default     = true
 }
 
+# VPC Single NAT Gateway (True or False)
 variable "vpc_single_nat_gateway" {
-  description = "single nat gatway for azs"
+  description = "Enable only single NAT Gateway in one Availability Zone to save costs during our demos"
   type        = bool
   default     = true
 }

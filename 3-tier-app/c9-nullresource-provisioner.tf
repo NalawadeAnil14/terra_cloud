@@ -1,5 +1,5 @@
 resource "null_resource" "temp_null" {
-  depends_on = [module.vpc]
+  depends_on = [module.vpc, module.public-bastion-instance]
 
   connection {
     type        = "ssh"

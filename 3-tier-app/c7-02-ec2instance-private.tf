@@ -10,7 +10,7 @@ module "private-ec2-instance" {
   key_name      = var.key_name
   user_data     = "${path.module}/user_data.sh"
 
-  vpc_security_group_ids = [module.private_sg.id]
+  vpc_security_group_ids = [module.private_sg.security_group_id]
 
   for_each  = toset(["0", "1"])
   subnet_id = element(module.vpc.private_subnets, tonumber(each.key))

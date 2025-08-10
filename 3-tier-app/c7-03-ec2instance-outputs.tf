@@ -5,7 +5,7 @@ output "public_instance_id" {
 
 output "public_bastion_ip" {
   description = "Public Ip of bastion host"
-  value       = module.public-bastion-instance.public_bastion_ip
+  value       = module.public-bastion-instance.public_ip 
 }
 
 output "private_ec2_id" {

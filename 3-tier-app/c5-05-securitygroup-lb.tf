@@ -4,6 +4,7 @@ module "lb_sg" {
 
   name        = "${local.name}-lb-sg"
   description = "Security group of load balancer"
+  vpc_id      = module.vpc.vpc_id
 
   ingress_rules       = ["http-80-tcp"]
   ingress_cidr_blocks = ["0.0.0.0/0"]
